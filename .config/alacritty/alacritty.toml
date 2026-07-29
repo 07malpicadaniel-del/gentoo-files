@@ -1,0 +1,7 @@
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[window]
+padding = { x = 10, y = 10 } # Un poco de aire para que el código no toque los bordes
+opacity = 1.0 # Opacidad sólida, sin distracciones de fondo

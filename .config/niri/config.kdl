@@ -1,0 +1,82 @@
+// --- 1. GEOMETRÍA Y BORDES ---
+layout {
+    // Las ventanas tomarán por defecto la mitad de tu pantalla
+    default-column-width { proportion 0.5; }
+
+    // Separación mínima entre las ventanas de la cinta
+    gaps 8
+
+    // Desactivamos el "anillo" difuminado que viene por defecto
+    focus-ring {
+        off
+    }
+
+    // Bordes afilados y estrictos
+border {
+        width 2
+        active-color "#ffffff" // Blanco puro para la ventana en foco
+        inactive-color "#000000" // Negro puro para camuflarse con el fondo
+    }
+}
+
+// --- 2. FÍSICA Y ANIMACIONES ---
+animations {
+    // Multiplicador general (1.0 es velocidad normal pura)
+    slowdown 1.0
+
+    // Transición de áreas de trabajo dura y rígida
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    // Apertura y cierre rápido de ventanas (150ms)
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    // Movimiento horizontal tenso por la cinta infinita
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+}
+
+// --- 3. SISTEMA NERVIOSO (HARDWARE) ---
+input {
+    keyboard {
+        xkb {
+            // Teclado en español latinoamericano
+            layout "latam"
+        }
+    }
+    touchpad {
+        // Habilitar toque para hacer clic y scroll natural
+        tap
+        natural-scroll
+    }
+}
+
+// --- 4. ATAJOS DE TECLADO (FLUJO VIM) ---
+binds {
+    // Comandos Base
+    Mod+Return { spawn "alacritty"; } // Abrir terminal (Alacritty)
+    Mod+Q { close-window; }           // Cerrar la ventana actual
+    Mod+Shift+E { quit; }             // Matar el servidor Niri y volver a la consola negra
+
+    // Navegación Vim (Mover la vista por la cinta)
+    Mod+H { focus-column-left; }  // Mirar a la ventana de la izquierda
+    Mod+L { focus-column-right; } // Mirar a la ventana de la derecha
+    Mod+J { focus-window-down; }  // Mirar a la ventana de abajo (si están apiladas)
+    Mod+K { focus-window-up; }    // Mirar a la ventana de arriba
+
+    // Manipulación Vim (Empujar ventanas físicamente en la cinta)
+    Mod+Shift+H { move-column-left; } 
+    Mod+Shift+L { move-column-right; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+}
