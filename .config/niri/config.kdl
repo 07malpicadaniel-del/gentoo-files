@@ -1,4 +1,7 @@
 // --- 1. GEOMETRÍA Y BORDES ---
+
+spawn-at-startup "waybar"
+
 layout {
     // Las ventanas tomarán por defecto la mitad de tu pantalla
     default-column-width { proportion 0.5; }
@@ -64,8 +67,8 @@ input {
 // --- 4. ATAJOS DE TECLADO (FLUJO VIM) ---
 binds {
     // Comandos Base
-    Mod+Return { spawn "alacritty"; } // Abrir terminal (Alacritty)
-    Mod+Q { close-window; }           // Cerrar la ventana actual
+    Mod+Q { spawn "alacritty"; } // Abrir terminal (Alacritty)
+    Mod+C { close-window; }           // Cerrar la ventana actual
     Mod+Shift+E { quit; }             // Matar el servidor Niri y volver a la consola negra
 
     // Navegación Vim (Mover la vista por la cinta)
@@ -79,4 +82,5 @@ binds {
     Mod+Shift+L { move-column-right; }
     Mod+Shift+J { move-window-down; }
     Mod+Shift+K { move-window-up; }
+    Mod+Tab { spawn "sh" "-c" "killall -SIGUSR1 waybar"; }
 }
