@@ -72,9 +72,8 @@ binds {
     Mod+Q { spawn "alacritty"; } // Abrir terminal (Alacritty)
     Mod+C { close-window; }           // Cerrar la ventana actual
     Mod+Shift+E { quit; }             // Matar el servidor Niri y volver a la consola negra
-    Mod+Shift+P { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
     Mod+Space { spawn "wofi" "--show" "drun"; }
-    Mod+Alt+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+    Mod+Shift+P { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
 
 // --- Navegación WASD (Mover la vista por la cinta) ---
     Mod+A { focus-column-left; }  // Mirar a la izquierda
