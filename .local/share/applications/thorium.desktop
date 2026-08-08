@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Thorium Browser
+Comment=Navegador Web de Alta Velocidad
+Exec=/home/daniel/Applications/Thorium.AppImage --enable-features=UseOzonePlatform --ozone-platform=wayland
+Icon=web-browser
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;

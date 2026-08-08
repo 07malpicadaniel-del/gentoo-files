@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Yazi File Manager
+Comment=Gestor de archivos TUI en Rust
+Exec=alacritty -e yazi
+Icon=system-file-manager
+Terminal=false
+Type=Application
+Categories=System;FileManager;

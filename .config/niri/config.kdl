@@ -4,7 +4,7 @@ spawn-at-startup "waybar"
 
 layout {
     // Las ventanas tomarán por defecto la mitad de tu pantalla
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 1.0; }
 
     // Separación mínima entre las ventanas de la cinta
     gaps 8
@@ -50,13 +50,15 @@ animations {
 }
 
 // --- 3. SISTEMA NERVIOSO (HARDWARE) ---
+
 input {
     keyboard {
         xkb {
-            // Teclado en español latinoamericano
-            layout "latam"
+            // Teclado en inglés (US)
+            layout "us"
         }
     }
+
     touchpad {
         // Habilitar toque para hacer clic y scroll natural
         tap
@@ -70,17 +72,21 @@ binds {
     Mod+Q { spawn "alacritty"; } // Abrir terminal (Alacritty)
     Mod+C { close-window; }           // Cerrar la ventana actual
     Mod+Shift+E { quit; }             // Matar el servidor Niri y volver a la consola negra
+    Mod+Shift+P { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+    Mod+Space { spawn "wofi" "--show" "drun"; }
+    Mod+Alt+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
 
-    // Navegación Vim (Mover la vista por la cinta)
-    Mod+H { focus-column-left; }  // Mirar a la ventana de la izquierda
-    Mod+L { focus-column-right; } // Mirar a la ventana de la derecha
-    Mod+J { focus-window-down; }  // Mirar a la ventana de abajo (si están apiladas)
-    Mod+K { focus-window-up; }    // Mirar a la ventana de arriba
+// --- Navegación WASD (Mover la vista por la cinta) ---
+    Mod+A { focus-column-left; }  // Mirar a la izquierda
+    Mod+D { focus-column-right; } // Mirar a la derecha
+    Mod+S { focus-window-down; }  // Mirar abajo (si hay ventanas apiladas)
+    Mod+W { focus-window-up; }    // Mirar arriba
 
-    // Manipulación Vim (Empujar ventanas físicamente en la cinta)
-    Mod+Shift+H { move-column-left; } 
-    Mod+Shift+L { move-column-right; }
-    Mod+Shift+J { move-window-down; }
-    Mod+Shift+K { move-window-up; }
+    // --- Manipulación WASD (Empujar ventanas físicamente) ---
+    Mod+Shift+A { move-column-left; }
+    Mod+Shift+D { move-column-right; }
+    Mod+Shift+S { move-window-down; }
+    Mod+Shift+W { move-window-up; }
+
     Mod+Tab { spawn "sh" "-c" "killall -SIGUSR1 waybar"; }
 }

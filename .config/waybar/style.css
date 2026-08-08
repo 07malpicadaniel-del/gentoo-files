@@ -1,0 +1,27 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: monospace;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+window#waybar {
+    background-color: #000000;
+    border-bottom: 2px solid #ffffff;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background: transparent;
+    color: #888888;
+}
+
+#workspaces button.active {
+    color: #00ffcc; /* Un ligero destello para saber dónde estás */
+}
+
+#clock, #network, #cpu, #memory {
+    padding: 0 15px;
+}
+

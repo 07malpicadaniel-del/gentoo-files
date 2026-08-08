@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Neovim
+Comment=Editor de texto minimalista
+Exec=nvim
+Icon=text-editor
+Terminal=true
+Type=Application
+Categories=Development;TextEditor;
